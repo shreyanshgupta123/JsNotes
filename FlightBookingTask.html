@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js" integrity="sha512-hUhvpC5f8cgc04OZb55j0KNGh4eh7dLxd/dPSJ5VyzqDWxsayYbojWyl5Tkcgrmb/RVKCRJI1jNlRbVP4WWC4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: whitesmoke;
+            text-align: center;
+            padding: 30px;
+            border-radius: 200px;    
+        }
+        table{
+            position: absolute;
+            left: 300px;
+            top: 200px;
+        }
+        .container-fluid
+        {
+            text-align: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+    <label for="from">From:</label>
+    <select name="fromFlights" id="From" onchange="From(event)" >
+        <option value="Select">Select</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Gorakhpur">Gorakhpur</option>
+        <option value="Lucknow">Lucknow</option>
+    </select>
+    <label for="to">To:</label>
+    <select name="fromFlights" id="From" onchange="To(event)">
+        <option value="Select">Select</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Ahmedabad">Ahmedabad</option>
+        <option value="Gorakhpur">Gorakhpur</option>
+        <option value="Lucknow">Lucknow</option>
+    </select>
+    <br>
+<label><input type="radio" name="discountType" onclick="discount()" value="Regular"/> Regular</label>
+<label><input type="radio" name="discountType" onclick="discount()"  value="Student"/> Student</label>
+<label><input type="radio" name="discountType" onclick="discount()" value="Senior Citizen"/> Senior Citizen</label>
+<label><input type="radio" name="discountType" onclick="discount()" value="Doctor & Nurses"/> Doctors & Nurses</label>
+<label><input type="radio" name="discountType" onclick="discount()" value="Armed Forces"/> Armed Forces</label>
+<br>
+<button type="button" class="btn btn-primary"  onclick="showFlight()" >Search Flights</button>
+</div>
+<div style="display: block;">
+    <h1 id="error"></h1>
+</div>
+<div id="selectionerror" style="display:none;color: red;">
+</div>
+<h1 id="error"></h1>
+<div class="container-fluid">
+
+
+<table class="table" id="list" style="display:none;" >
+    <thead>
+      <tr>     
+        <th scope="col">FlightNo</th>
+        <th scope="col">DepartureFrom</th>
+        <th scope="col">ArrivalDestination</th>
+        <th scope="col">DepartureTime</th>
+        <th scope="col">ArrivalTime</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Price</th>
+        <th scope="col">Book Now</th>
+      </tr>
+    </thead>
+    <tbody >
+      <tr>
+      <td id="flightNo"></td>
+      <td id="departureFrom"></td>
+      <td id="arrivalDestination"></td>
+      <td id="departureTime"></td>
+      <td id="arrivalTime"></td>
+      <td id="duration"></td>
+      <td id="arrivalDestination"></td>
+      <td id="departureFrom"></td>
+      <td id="arrivalDestination"></td>
+      <td id="baseprice"></td>
+      <td><button>Book Now!</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+    <script>
+         var FromFlight='';
+        var toFlight='';
+        var baseFlightRate=6000;
+        isFromflightis=false;
+        isToflightis=false;
+         const Flights=[];
+//----------------------------------------------------------------------------------------ADV.-----------------------------------------------------------------------------------------------
+        const airlines = ['SkyConnect India', 'AirSaffron', 'IndiWings', 'SpiceAir', 'BlueHorizon Airlines', 'RoyalSky India', 'AeroIndia Express', 'HimalayaFly', 'TajAirways', 'LotusAir India'];
+
+for (let i = 0; i < 100; i++) {
+    const randomAirline = airlines[Math.floor(Math.random() * airlines.length)];
+    const flightNo = `${randomAirline} ${i + 1}`;
+    const departureTime = `${Math.floor(Math.random() * 24)}:00`;
+    const arrivalTime = `${Math.floor(Math.random() * 24)}:00`;
+    const duration = `${Math.floor(Math.random() * 6) + 1} Hours`;
+    const departureFrom = ['Ahemdabad', 'Delhi', 'Lucknow', 'Gorakhpur'][Math.floor(Math.random() * 4)];
+    let arrivalDestination = ['Ahemdabad', 'Delhi', 'Lucknow', 'Gorakhpur'][Math.floor(Math.random() * 4)];
+    while (arrivalDestination === departureFrom) {
+        arrivalDestination = ['Ahemdabad', 'Delhi', 'Lucknow', 'Gorakhpur'][Math.floor(Math.random() * 4)];
+    }
+    Flights.push({
+        flightNo: flightNo,
+        departureTime: departureTime,
+        arrivalTime: arrivalTime,
+        duration: duration,
+        departureFrom: departureFrom,
+        arrivalDestination: arrivalDestination,
+        baseFlightRate:JSON.stringify(baseFlightRate)
+    });
+}
+
+function discount() {
+    var radios = document.getElementsByName('discountType');
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            console.log(radios[i].value)
+            var dis=radios[i].value;
+            switch(dis){
+case 'Regular':
+     baseFlightRate=baseFlightRate-100;
+    
+break; 
+case 'Student':    
+baseFlightRate=baseFlightRate-600;
+break;
+case'Senior Citizen':
+baseFlightRate=baseFlightRate-500;
+break;
+case'Doctor & Nurses':
+baseFlightRate=baseFlightRate-300;
+break;
+case'Armed Forces':
+baseFlightRate=baseFlightRate-500;
+break;
+default:
+    baseFlightRate=baseFlightRate;
+break;
+            }
+            for (var j = 0; j < radios.length; j++) {
+                if (j !== i) {
+
+                    radios[j].checked = false;
+                }
+            }
+            break;
+        }
+    }
+
+}
+//-----------------------------------------------------------------------------------------------ADV.-------------------------------------------------------------------------------------
+        function From(event) {
+            this.FromFlight = event.target.value;
+            console.log(this.FromFlight);
+            this.isFromflightis=true;
+        }
+        function To(event) {
+            this.toFlight = event.target.value;
+            console.log(this.toFlight);
+            this.isToflightis=true;
+        }
+        function showFlight() {
+    if (this.isFromflightis && this.isToflightis) 
+    {
+        let matchingFlights = Flights.filter(flight => flight.departureFrom === this.FromFlight && flight.arrivalDestination === this.toFlight);
+
+        if (matchingFlights.length === 0) {
+            document.getElementById('selectionerror').style.display = 'block';
+            document.getElementById('selectionerror').innerHTML = 'No flights found for the selected route';
+            document.getElementById('list').style.display = 'none';
+            document.getElementById('error').style.display = 'none';
+        } else {
+            document.getElementById('selectionerror').style.display = 'none';
+            document.getElementById('list').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+
+            let tableBody = document.querySelector('#list tbody');
+            tableBody.innerHTML = '';
+
+            matchingFlights.forEach(flight => {
+                let row = tableBody.insertRow();
+                row.innerHTML = `
+                    <td>${flight.flightNo}</td>
+                    <td>${flight.departureFrom}</td>
+                    <td>${flight.arrivalDestination}</td>
+                    <td>${flight.departureTime}</td>
+                    <td>${flight.arrivalTime}</td>
+                    <td>${flight.duration}</td>
+                    <td>${baseFlightRate}</td>
+                    <td><button type="button" class="btn btn-warning" >BookNow</button></td>
+                `;
+            });
+        }
+    } else {
+        document.getElementById('error').innerHTML = 'Selection is required!';
+    }
+}
+ 
+    </script>
+</body>
+</html>

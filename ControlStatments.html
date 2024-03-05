@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="list-users">
+<li>a</li>
+<li>b</li>
+<li>c</li>
+<li>d</li>
+    </ul> 
+    <button onclick="deleteAllUsers()">Delete All</button>
+    <div>
+        <input type="radio" name="fareType" value="regular" checked onchange="onChangeFaretype('regular')" />Regular
+        <input type="radio" name="fareType" value="ArmedForces" onchange="onChangeFaretype('ArmedForces')" />Armed Forces
+        <input type="radio" name="fareType" value="SeniorCitizen" onchange="onChangeFaretype('SeniorCitizen')" />Senior Citizen
+        <input type="radio" name="fareType" value="Student" onchange="onChangeFaretype('Student')" />Student
+        <input type="radio" name="fareType" value="Doctors" onchange="onChangeFaretype('Doctors')" />Doctors & Nurses
+    </div>
+    <script>
+function deleteAllUsers()
+{
+    var userUl=document.getElementById('list-users');
+    while(userUl.firstChild)
+    {
+        userUl.removeChild(userUl.lastChild)
+    }    
+}
+
+var flights=[
+    {
+        name:'Indigo',
+        source:'HYD',
+        destination:'BOM',
+        startTime:'20:20',
+        endTime:'01:05',
+        duration:'4h 45m',
+        price:4745,
+        discountPrice:1200
+    },
+    {
+        name:'AirIndia',
+        source:'HYD',
+        destination:'GOP',
+        startTime:'21:20',
+        endTime:'01:05',
+        duration:'2h 30m',
+        price:6500,
+        discountPrice:1100
+    },
+    {
+        name:'Akasha',
+        source:'HYD',
+        destination:'DEL',
+        startTime:'20:30',
+        endTime:'01:05',
+        duration:'5h 45m',
+        price:5200,
+        discountPrice:1000
+    },
+
+]
+var i=0;
+// while(i<flights.length)
+// {
+// console.log(flights[i].name);
+//     i++;
+// }
+do{
+    console.log(flights[i].name);
+    i++;
+}while(i<flights.length);  
+
+for(var i=flights.length-1;i>0;i--)
+{
+    console.log("Flight Names "+ flights[i].name)
+}
+
+//for of-
+for(var flight of flights)
+{
+    console.log(flight)
+}
+//-------------------------------------------------
+//forEach-
+flights.forEach(function(flights,index){
+console.log('Name : '+flights.name)
+})
+
+//for in-
+for(var key in flights[0])
+{
+    console.log(key,': ',flights[0][key]);
+}
+function onChangeFaretype(fareType)
+{
+var fareTypes={
+    regular:6787,
+    ArmedForces:12000,
+    SeniorCitizen:13000,
+    Student:70000,
+    Doctors:8000
+
+};
+flights.forEach(function(flight){
+    flight.discountPrice=((100-fareTypes[fareType])/100)*flight.price;
+})
+console.log(flights);
+}
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            font-size: 60px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="container" style="background: rgb(199, 191, 191); width: 250px;height: 1000px; text-align: center; padding: 10px;border-radius: 80px; border: 1px solid rgb(110, 64, 64);">
+        <div style="background: red; border-radius: 100%; width: 100% ;height: 250px;margin-bottom: 10px; text-align: center;"id="red"> 
+<h1 id="red1"></h1>
+        </div>
+    <div style="background:yellow;border-radius: 100%; width: 100% ;height: 250px;margin-bottom: 10px;" id="yellow">
+        <h1 style="text-align: center;" id="yellow1"></h1>
+        </div>
+        <div style="background: green;border-radius: 100%; width: 100% ;height: 250px;" id="green">
+            <h1 id="green1"></h1>
+                    </div>
+    </div>
+</div>
+    <script>
+       var light = ['red', 'yellow', 'green'];
+light.forEach(function(element, index) 
+{
+    setTimeout(function()
+     {
+        switch (element) {
+            case 'red': 
+                // document.getElementById("red1").innerHTML ='Stop'
+                document.getElementById("red").style.backgroundColor = "red";
+                document.getElementById("yellow").style.backgroundColor = "black";
+                document.getElementById("green").style.backgroundColor = "black";
+                break;
+            case 'yellow':
+            // document.getElementById("yellow1").innerHTML ='Ready'
+                document.getElementById("red").style.backgroundColor = "black";
+                document.getElementById("yellow").style.backgroundColor = "yellow";
+                document.getElementById("green").style.backgroundColor = "black";
+                break;
+            case 'green':
+            // document.getElementById("green1").innerHTML ='Go'
+                document.getElementById("red").style.backgroundColor = "black";
+                document.getElementById("yellow").style.backgroundColor = "black";
+                document.getElementById("green").style.backgroundColor = "green";
+                break;
+            default:
+                console.log('Unknown light color');
+        }
+    }, index * 1000); 
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input placeholder="Enter Mobile No" id="mobileNo"/>
+    <button onclick="validateMobileNo(successCallback,failurecallback)">Callback</button>
+    <script>
+      var user = {
+        firstname: "shreyansh",//string/number/boolean/Array/Object/Function
+        lastname: "gupta",
+        gender: "Male",
+        age: 24,
+    dob:'2024-02-29T06:09:13.113Z',
+        mob:[7309932628,959595959],
+        address:{
+            plotNo:'Ad-12',
+            area:'Madhapur',
+            city:'Hyderabad',
+            state:'Telangana',
+            pincode:500038
+        },
+        isLoggedIn:false,
+        getFullName:function()
+        {
+            return 'Mr./Ms'+this.firstname+" "+ this.lastname;
+        },
+        getFormattedDate:function()
+        {
+            var dateObj=new Date(this.dob);
+            return dateObj.getDate()+'/'+ dateObj.getMonth() +'/'+dateObj.getFullYear();
+        }
+      };
+    console.log(user.getFormattedDate());
+
+    //Anonymous Function
+    (function()
+        {
+console.log("hi");
+        })();
+
+        //--------------------------------------------callback Function-----------------------------------------------------------
+        var dbMobileNo=7309932628;
+        var userMobileNo=7309932628;
+        function successCallback(){
+console.log('In success callback....')
+        }
+        function failurecallback()
+        {
+console.log('In failure callback....')
+        }
+        function validateMobileNo(successCallback,failurecallback)
+        {
+            var userMobileNo=document.getElementById('mobileNo').value;
+           parseInt(userMobileNo)===dbMobileNo?successCallback() : failurecallback();
+        }
+        validateMobileNo(successCallback,failurecallback);
+    </script>
+  </body>
+</html>

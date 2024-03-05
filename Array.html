@@ -1,0 +1,147 @@
+<!-- Predefined Methods used in Array 
+a- a.toString();-convert array into string 
+b-push();-Inserts a new value into the array at last index position 
+c-pop();- Remove the element from last index position  of an array and return that element  
+d-splice(index_pos,delete_num,"new_value","new_value");//To add and del.
+e-concat(second_arr); for concatting  two or more than two arrays    
+f-Sort()-to sort the data in ascending order
+g-Reverse()-To reverse the array elements.
+
+-----------Strings--------------
+a-Strings are used for storing and manipulating text.
+b-jS strings simply stores a series of Characters.
+Examples:-
+
+var carNames="Volvo"
+var answer='its right'; etc
+
+String methods:
+1.length - returns the length of the string
+2.indexOf("text") - Returns the first occurrence
+3.lastIndexOf("text") - Returns the last occurrence
+4.charAt(index) - Returns  character at specific Index  
+5.substring(start,end) - returns a substring of a given string. The function takes two parameters, start and end, which specify the starting and ending positions of the substring within the original string.
+6.substr(start [,length]) - extracts substring from string based on start index and length.
+7.split(",") - Splitting String based on comma
+8-trim() - Removes any leading and trailing 
+9.toLowerCase() & toUpperCase() -  convert the string into lower or uppercase 
+10.concat("",str)  //"Hello".concat("", "World");   
+
+
+-----------------Date Object--------------
+a-Represent a single moment in time.
+1.NewDate()
+2.Newdate(Milisec)
+3.NewDate(dateString)
+4.NewDate(year,month,date,hrs,mins,secs,millisecs)
+
+Methods:
+1.getFullYear()
+2.getMonth()
+3.getDay()
+4.getDate()
+5.getHours()
+6.getMinutes()
+7.getSeconds()
+8.getMilliseconds()
+9.setFullYear(year, month, date)
+10.setMonth(mon)
+11.setDate(day)
+12.setHours(hrs)
+13.setMinutes(min)
+14.setTime(time)
+15.valueOf()
+
+Formatting Dates:
+1.toLocaleDateString()
+2.toLocaleTimeString()
+3.toString()
+4.toGMTString()
+      
+Number:
+1.parseInt()
+2.parseFloat()
+3.Math.round()
+4.Math.floor()
+5.Math.ceil()
+6.Math.random()
+7.Number.MAX_VALUE
+8.Number.MIN_VALUE
+
+Scope:Visibility of a value.
+1.Global Scope:When we create any variable in Js file outside the function,we can access any where in the file.
+2.Local Scope
+3.Function Scope:we can access variable created in function, only within the function  where it is declared.
+4.Block Scope
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+</head>
+<body>
+    <input type="date" onclick="onDatechange(event)">
+    <script>
+        var nums=[34,65,98,58];
+        console.log(nums.toString()); //converting array to string
+        nums.push(76);   
+        console.log(nums)
+        nums.pop()
+        console.log(nums)
+        nums.splice(1,1);
+        console.log(nums);
+        var nums2=[90,20,125,20];
+        var result=nums.concat(nums2,nums)
+        console.log(result)
+        console.log(nums.sort());
+        console.log(nums.reverse())
+
+        console.log(nums.includes(58)); //checking if array contains this   Output:true or False.
+
+        console.log(nums.indexOf(34));
+
+        var str=new String("hello world")
+        console.log(str.length,str);    
+
+        var currentDateObj=new Date();
+
+        console.log(currentDateObj)
+        console.log(currentDateObj.toISOString())
+var months=currentDateObj.getDate()
+console.log(months)
+
+const daymapping={
+    0:'Sunday',
+    1:'Monday',
+    2:'Tuesday',
+    3:'Wednesday',
+    4:'Thursday',
+    5:'Friday',
+    6:'Saturday',
+}
+console.log(daymapping[currentDateObj.getDay()]);
+
+function onDatechange(event)
+{
+    console.log(event.target.value) 
+}
+console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
+
+var amount=999.3265699;
+console.log(Math.round(amount))
+console.log(amount.toFixed(2))
+
+function a()
+{
+    var b=20;
+    console.log(b);
+}
+console.log(b);//undefined
+    </script>
+</body>
+
+</html>

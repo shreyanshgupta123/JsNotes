@@ -1,0 +1,48 @@
+Task: Flight Booking System
+
+Create a simple flight booking system where users can select their destination and view available flights based on their selection.
+
+Requirements:
+
+1-Display a dropdown menu with a list of destinations (e.g., Delhi, Ahmedabad, Gorakhpur,Lucknow).-------------Done
+
+2- user selects a destination and departure from the dropdown menu.--------------Done 
+
+3-Each flight should display the following information: flight number, departure time, arrival time, and price.-------------Done 
+
+4-Implement filtering options for users to filter flights based on departure time or price.
+
+
+5-Allow users to book a flight by clicking on a "Book Now" button next to each flight.
+
+
+6-Use HTML to create the structure of the page, CSS to style the elements, and JavaScript to handle the dynamic content and user interactions.
+
+
+
+
+        // [   {flightNo: 'Indigo 123',departureTime:'8:00 AM',arrivalTime:'2:30 PM',duration:'6 Hours', departureFrom:"Ahemdabad",arrivalDestination:"Delhi"},
+        //     {flightNo: 'Indigo 456',departureTime:'9:00 AM',arrivalTime:'10:40 AM',duration:'40 mins',departureFrom:"Ahemdabad",arrivalDestination:"Lucknow"},
+        //     {flightNo: 'Indigo 789',departureTime:'10:00 AM',arrivalTime:'11:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Ahemdabad",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'Indigo 101',departureTime:'11:00 AM',arrivalTime:'2:30 PM',duration:'6 Hours', departureFrom:"Delhi",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'Indigo 112',departureTime:'12:00 AM',arrivalTime:'10:40 AM',duration:'40 mins',departureFrom:"Delhi",arrivalDestination:"Lucknow"},
+        //     {flightNo: 'Indigo 131',departureTime:'13:00 PM',arrivalTime:'11:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Delhi",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'Indigo 415',departureTime:'14:00 PM',arrivalTime:'2:30 PM',duration:'6 Hours', departureFrom:"Lucknow",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'Indigo 161',departureTime:'15:00 PM',arrivalTime:'10:40 AM',duration:'40 mins',departureFrom:"Lucknow",arrivalDestination:"Delhi"},
+        //     {flightNo: 'Indigo 718',departureTime:'16:00 PM',arrivalTime:'11:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Lucknow",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'Indigo 192',departureTime:'17:00 PM',arrivalTime:'2:30 PM',duration:'6 Hours', departureFrom:"Gorakhpur",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'Indigo 021',departureTime:'18:00 PM',arrivalTime:'10:40 AM',duration:'40 mins',departureFrom:"Gorakhpur",arrivalDestination:"Delhi"},
+        //     {flightNo: 'Indigo 222',departureTime:'19:00 PM', arrivalTime:'11:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Gorakhpur",arrivalDestination:"Lucknow"},
+        //     {flightNo: 'AirIndia 123',departureTime:'20:00 PM',arrivalTime:'2:30 PM',duration:'6 Hours', departureFrom:"Ahemdabad",arrivalDestination:"Delhi"},
+        //     {flightNo: 'AirIndia 456',departureTime:'21:00 PM',arrivalTime:'21:40 PM',duration:'40 mins',departureFrom:"Ahemdabad",arrivalDestination:"Lucknow"},
+        //     {flightNo: 'AirIndia 789',departureTime:'22:00 PM',arrivalTime:'22:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Ahemdabad",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'AirIndia 101',departureTime:'23:00 PM',arrivalTime:'23:30 PM',duration:'6 Hours', departureFrom:"Delhi",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'Akasha 112',departureTime:'00:00 AM',arrivalTime:'01:40 AM',duration:'40 mins',departureFrom:"Delhi",arrivalDestination:"Lucknow"},
+        //     {flightNo: 'Akasha 131',departureTime:'01:00 AM',arrivalTime:'2:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Delhi",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'SkyConnect 415',departureTime:'02:00 AM',arrivalTime:'8:00 AM',duration:'6 Hours', departureFrom:"Lucknow",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'AirSaffron 161',departureTime:'03:00 AM',arrivalTime:'4:40 AM',duration:'40 mins',departureFrom:"Lucknow",arrivalDestination:"Delhi"},
+        //     {flightNo: 'TajAirways 718',departureTime:'04:00 AM',arrivalTime:'05:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Lucknow",arrivalDestination:"Gorakhpur"},
+        //     {flightNo: 'LotusAir India 192',departureTime:'05:00 AM',arrivalTime:'11:00 AM',duration:'6 Hours', departureFrom:"Gorakhpur",arrivalDestination:"Ahemdabad"},
+        //     {flightNo: 'Indigo 021',departureTime:'06:00 AM',arrivalTime:'07:40 AM',duration:'40 mins',departureFrom:"Gorakhpur",arrivalDestination:"Delhi"},
+        //     {flightNo: 'Indigo 222',departureTime:'07:00 AM', arrivalTime:'08:40 AM',duration:'1 Hrs 40 mins',departureFrom:"Gorakhpur",arrivalDestination:"Lucknow"},
+        // ]

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="px"></h1>
+    <script>
+      var isUserActive = true;
+      console.log(typeof isUserActive);
+      isUserActive = 100.11;
+      console.log(typeof isUserActive);
+      var username = ["aman", "rahul", "shreyansh"];
+      console.log("Username Array: ", username);
+     // document.getElementById("px").innerHTML = username;
+      //add a new  element to the array 
+      username.push("Aman Kumar");
+      //objects
+var userinfo=['Aman',23,'Computer Science']; 
+      userinfo={
+        name: "Aman kumar", 
+        age :23 ,   
+        salary:100000
+      }
+ var meeting1=[{
+    name:'shreyansh',
+    age:25,
+    salary:200000
+ },
+{
+    name:'satyam',
+    age:26,
+    salary:300000
+},
+userinfo];
+      document.getElementById("px").innerHTML = userinfo;
+console.log("meeting",meeting1) ;   
+    </script>
+  </body>
+</html>

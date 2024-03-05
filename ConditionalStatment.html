@@ -1,0 +1,93 @@
+<!--Conditional statments-->
+<!--Statments will be executed conditionally based on the scenarios
+if else:using this we can mention multiple conditions and based on that statment can be executed.
+switch: One condition with multiple case
+
+syntax:
+if(condition)
+{
+statments.....
+}else{
+    //statments....
+}
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #loggedOutContent
+        {
+        display: block;  
+        }
+        #loggedInContent
+        {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/ac895525c1.js" crossorigin="anonymous"></script>
+    <div id="logOutContent">
+        <ul>
+<li>Contract Sale</li>
+<li>Sign Up Free</li>
+
+        </ul>
+    </div>
+<div id="loggedInContent">
+<ul>
+    <li>Schedule</li>
+    <li>Join</li>
+    <li>Host</li>
+    <li>Web app</li>
+</ul>
+</div>
+<button onclick="toggleContent()">Toggle Content</button>
+<br>
+<br>
+<div>
+    <label>password:</label>
+    <input type="password" id="password" placeholder="Enter password"/><i id="password-icon" onclick="changeVisibility()" class="fa-solid fa-eye"></i>
+</div>
+
+    <script>
+        var isloggedIn=false;
+
+function toggleContent(){
+if(isloggedIn)
+{
+    document.getElementById( "logOutContent").style.display ='block';
+    document.getElementById("loggedInContent").style.display='none';
+}else{
+    document.getElementById('logOutContent').style.display='none';
+    document.getElementById('loggedInContent').style.display='block';
+}
+isloggedIn=!isloggedIn  
+}
+
+//function for changing the class
+
+var isPasswordVisible=false;
+
+function changeVisibility()
+{ 
+    if(isPasswordVisible) 
+    {
+document.getElementById('password').type='password';
+document.getElementById('password-icon').classList.remove('fa-eye-slash');
+document.getElementById('password-icon').classList.add('fa-eye');
+    }else{
+document.getElementById('password').type='text';
+document.getElementById('password-icon').classList.remove('fa-eye');
+document.getElementById('password-icon').classList.add('fa-eye-slash');
+    }
+    isPasswordVisible=!isPasswordVisible;
+}
+    </script>
+   
+</body>
+</html>

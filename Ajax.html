@@ -1,0 +1,42 @@
+<!--
+    Ajax-Asynchronous Javascript and XML(JSON)
+JSON-Javascript Object Notation- Its a common data format which is been used by different technologies to transfer the data from one to other server. 
+
+Javascript Object-> JSON String 
+
+JSON.stringify()
+
+JSON String-> Javascript Object
+
+JSON.parse()
+-Send data from a web server.
+-Update the Web page without reloading the page.
+-Send data to a web server.
+
+->We can send or receive the data from web server (backend),without reloading the web-page
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4 id="userInfo"></h4>
+    <script>
+        var user={
+            firstName:'shreyansh',
+            lastName:'Gupta'
+        };
+        console.log(user)
+
+        document.getElementById('userInfo').innerHTML=JSON.stringify(user); 
+
+        console.log(JSON.stringify(user).substr(0,5)); //converting javascript object
+ var userStr=JSON.stringify(user);
+ console.log(JSON.parse(userStr));//it convert from string to object
+
+    </script>
+</body>
+</html>
